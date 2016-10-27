@@ -1,0 +1,60 @@
+body{background: #fff;}
+/*.panel-header, .panel-body{border: solid 1px #eee;}*/
+.supplier-top-header{ position: absolute;top: 0; left: 0; z-index: 1; width: 100%; height: 90px; background: #fff;}
+.supplier-header{width: 100%; height: 90px; background: #fff;}
+.supplier-header p{ float: right; margin: 30px 10px 0 10px; line-height: 30px; font-size: 14px; color: #333;}
+.supplier-header p a{ margin:0 6px; color: #333;}
+.supplier-header p a:hover{color: #0e99d9}
+.supplier-article{ width: 100%; background: url(../images/supplierbg.jpg) no-repeat center bottom;}
+.supplier-footer{position: absolute;bottom: 0; left: 0; z-index: 2; width: 100%; height:48px ; padding:28px 0; text-align: center; line-height: 24px; font-size: 14px; color: #666; background: #e9e9e9;}
+.tophelp{margin:30px 10px 10px 0;padding-left:30px;line-height: 30px; font-size: 14px; color: #333;}
+
+.relative{position:relative;}
+.supplier-rgt-login{position:absolute;right:50%; top:50%;width: 282px; height: 270px; padding:30px 40px; margin-top: -180px; margin-right: -581px; color: #fff; background: #7a7b7b;}
+.supplier-rgt-login h2{ padding-bottom: 10px; line-height: 24px; font-weight: 100; font-size: 16px;}
+.supplier-rgt-login li{ float: left; width: 100%; margin:12px 0; font-size: 14px;}
+.suploginbox{ position: relative; height: 20px; padding:10px 0; line-height: 20px; border-radius: 2px; background: #fff;}
+.suploginbox span{  float: left; width: 55px;height: 20px; line-height: 20px; border-right: solid 1px #e9e9e9; text-align: center; font-size: 14px; color: #666;}
+.suploginbox .formtips{ position: absolute;top: 36px; left: 55px;display: inline-block; height: 21px; padding: 2px 6px; border-radius: 2px; line-height: 21px; font-size: 12px;}
+.onError{border: 1px solid #e39f9f;  color: #f00; background: #fff8f8; }
+.loginput{ width: 204px; height: 20px; padding:0 8px; line-height: 20px; border: none; font-size: 14px; color: #717171;}
+.suplogin-btn{ width:100%; height:50px; border-radius: 2px; line-height:50px;text-align:center;font-size: 18px; color: #fff; background: #009ee6; cursor: pointer;}
+.suplogin-btn:hover{ background: #52c7fd}
+
+
+/*default*/
+.default-supplier{ padding:16px; background: #fff;}
+/*right*/
+.def-sup-rgt{ width: 260px; border:solid 1px #eee;}
+.def-sup-rgt h3{ height: 45px;padding:0 15px; line-height: 45px; font-weight: 100; font-size: 18px; color: #000; background: #f2f2f2;}
+.desup-rgtlist{ display: block; padding:16px;}
+.desup-rgtlist li{ position: relative; display: block; width: 100%; border-bottom: dashed 1px #f2f2f2; line-height: 35px; font-size: 14px;}
+.desup-rgtlist li a{color: #333;}
+.desup-rgtlist li.nobor{border-bottom: none;}
+
+.desup-rgtlist .editor{ position: absolute;right:0; top: 7px; display: none; height: 20px; border-radius: 2px; padding:0 5px; line-height: 20px; font-size: 12px; color: #fff; background: #008ee0;}
+.desup-rgtlist li:hover .editor{ display: block;}
+
+
+/*left*/
+.def-sup-left{ width: 800px;}
+
+.supfilebtn{display:inline;float:left;width:100%;text-align:center;line-height:30px;border-radius:none; border:none;text-align:center; text-decoration: underline; font-size:14px;color:#008ee0;background:none;cursor:pointer;}
+.supfileimg{width: 300px; height: 210px;background: #f2f2f2}
+.supfileimg img{width: 300px; height: 210px;}
+.deupfilesm{height: 22px;}
+
+.deupfile{ width: 300px;}
+.suppinfo{ width: 480px; min-height: 320px;}
+.suppinfo h2.tit{ font-size: 20px; font-weight: 100; color: #333}
+
+.jdprogress {width: 100%; height: 36px; padding: 5px 0; line-height: 36px; font-size: 14px; color: #64675f; }
+.jdbox {position:relative;z-index:9;width: 280px; height: 8px; margin: 14px 0 0 0; border:solid 1px #ccc; background-color: #fff;}
+.jdbox span {position:absolute;left:-1px;top:-1px;z-index:99;display: block;height: 8px; border:solid 1px #ff6d7e; background: #ff6d7e; }
+.jdprogress i {float: left; margin-left: 10px; line-height: 36px; font-size: 14px; font-weight: 100; color: #64675f; }
+a.linkline{margin:0 5px 0 20px; text-decoration: underline; font-size:14px;color: #00a0e9;}
+
+.supdetail{ width: 100%; line-height: 34px; font-size: 14px; color: #666;}
+.supdetailbtn { display: block;}
+.supdetailbtn a{ display: inline-block; width: 136px; height: 40px; margin-right:70px; border-radius: 2px; line-height: 40px;  text-align: center; font-size: 16px; color: #fff; background: #3ec1fd;}
+.supdetailbtn a:hover{background: #52c7fd}

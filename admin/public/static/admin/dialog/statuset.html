@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>海外医疗信息管理系统</title>
+	<link rel="stylesheet" type="text/css" href="../css/global.css">
+	<link rel="stylesheet" type="text/css" href="../css/dialog.css">
+	<script type="text/javascript" src="../js/jquery-1.8.3.js"></script>
+	<script type="text/javascript" src="../js/base.js"></script>
+</head>
+<body>
+	<!-- article -->
+	<div class="pad20">
+		<table class="formtab" width="100%" cellspacing="0" cellpadding="0" border="0">
+			<tr>
+				<td width="90" align="right" valign="top">受理状态：</td>
+				<td width="" class="slstatius" >
+				    <label><input type="radio" name="slstatus" value="待审核"> 待审核</label>
+					<label><input type="radio" name="slstatus" value="已审核"> 已审核</label>
+					<label><input type="radio" name="slstatus" value="咨询中"> 咨询中</label>
+					<label><input type="radio" name="slstatus" value="办完签证"> 办完签证</label>
+					<label><input type="radio" name="slstatus" value="出国"> 出国</label>
+					<label><input type="radio" name="slstatus" value="检查/治疗/术前咨询"> 检查/治疗/术前咨询</label>
+					<label><input type="radio" name="slstatus" value="完成检查/手术/治疗"> 完成检查/手术/治疗</label>
+					<label><input type="radio" name="slstatus" value="回国"> 回国</label>
+                </td>
+			</tr>
+			<tr>
+				<td align="right" valign="top">备注说明：</td>
+				<td>
+					<textarea name="" cols="" rows="" class="textareas2"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center" class="nobor">
+					<div  class="block center">
+						<input type="submit" name="" value="确定" class="btns btn-blue mlr10" onclick="surebtn();">
+						<input type="submit" name="" value="取消" class="btns btn-gray mlr10 cancelclose">
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<!-- /article -->
+	<script>
+		function surebtn() {  //确定要受理该预约？
+		    top.$.messager.confirm('提示','确定要受理该预约？',function(r){    
+			    if (r){    
+			    	parent.$('#win').window('close');
+			    	var TopTab=window.parent.$('#index_tabs')
+					TopTab.tabs('close','预约列表');
+				    TopTab.tabs('add',{title:'预约列表',content:'<iframe scrolling="auto" frameborder="0"  src="reservation-list.html" style="width:100%;height:99.2%;"></iframe>',closable:true });
+					}    
+			});
+		}  
+	</script>
+</body>
+</html>

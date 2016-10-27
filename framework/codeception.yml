@@ -1,0 +1,24 @@
+actor: Tester
+paths:
+    tests: tests
+    log: tests/_output
+    data: tests/_data
+    helpers: tests/_support
+settings:
+    bootstrap: _bootstrap.php
+    colors: true
+    memory_limit: 1024M
+coverage:
+    enabled: true
+    exclude:
+        - tests/*
+modules:
+    enabled: [Db]
+    config:
+        Db:
+            dsn: 'mysql:host=127.0.0.1;dbname=mysql'
+            user: 'root'
+            password: ''
+            dump: 
+            populate: 'true'
+            cleanup: true

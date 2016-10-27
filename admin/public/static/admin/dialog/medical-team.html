@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>海外医疗信息管理系统</title>
+	<link rel="stylesheet" type="text/css" href="../css/global.css">
+	<link rel="stylesheet" type="text/css" href="../css/dialog.css">
+	<style type="text/css">
+	body{background: #fff;}
+	</style>
+	<script type="text/javascript" src="../js/jquery-1.8.3.js"></script>
+	<script type="text/javascript" src="../js/base.js"></script>
+    <script type="text/javascript" src="../js/upfile.js"></script>
+	
+</head>
+<body>
+<div class="pad20 clearfix">
+	<div class="clearfix">
+        <table width="640" border="0" cellpadding="0" cellspacing="0" class="fr formtab formtab2">
+            <tr>
+                <td width="90" align="right" valign="middle"><em class="col-red">*</em> 专家名字：</td>
+                <td colspan="3">
+                    <input type="text" name="" value="" class="inputs forminput w210">
+              </td>
+          </tr>
+            <tr>
+                <td align="right" valign="middle"><em class="col-red">*</em> 所&nbsp;&nbsp;在&nbsp;地：</td>
+                <td width="">
+                    <select class="selectbox">
+                        <option selected="" value="请选择">请选择</option>
+                        <option value="中国">中国</option>
+                        <option value="韩国">韩国</option>
+                        <option value="美国">美国</option>
+                        <option value="日本">日本</option>
+                        <option value="英国">英国</option>
+                        <option value="德国">德国</option>
+                        <option value="其他国家">其他国家</option>
+                    </select>
+                </td>
+                <td width="100" align="right" valign="middle"><em class="col-red">*</em>擅长领域：</td>
+                <td width="">
+                    <select class="selectbox">
+                        <option value="请选择">请选择</option>
+                        <option value="癌症">癌症</option>
+                        <option value="心脑血管疾病">心脑血管疾病</option>
+                        <option value="质子与重离子">质子与重离子</option>
+                        <option value="儿童疾病 ">儿童疾病 </option>
+                        <option value="神经类疾病">神经类疾病</option>
+                        <option value="消化疾病">消化疾病</option>
+                        <option value="体检">体检</option>
+                        <option value="不孕不育">不孕不育</option>
+                        <option selected="" value="整形美容">整形美容</option>
+                        <option value="肝病">肝病</option>
+                        <option value="关节置换">关节置换</option>
+                        <option value="其他">其他</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td align="right" valign="middle"><em class="col-red">*</em> 职&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;称：</td>
+                <td colspan="3"><input type="text" name="" value="" class="inputs forminput w210"></td>
+            </tr>
+            <tr>
+                <td align="right" valign="middle">职&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;位：</td>
+                <td colspan="3"><input type="text" name="" value="" class="inputs forminput w210"></td>
+            </tr>
+            <tr>
+                <td align="right" valign="middle"><em class="col-red">*</em> 专&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;长：</td>
+                <td colspan="3" class="clearfix">
+                    <input type="text" name="" value="" class="inputs forminput w210">
+                </td>
+            </tr>
+            <tr>
+                <td align="right" valign="top"><em class="col-red">*</em> 专家简介：</td>
+                <td colspan="3">
+                    <textarea name="" cols="" rows="" class="textareas2"></textarea>
+                </td>
+            </tr>
+        </table>
+        <div class="fl leftupfile">
+            <div class="fl upfileimg block fts12">
+                <div id="showimg"></div>
+                <p><img src="../images/ts.png" class="fl"> 尺寸为200*254px ,说明：示例中只允许上传gif/jpg格式的图片，建议上传清晰的图片文件</p>
+                <div class="upfilebtn">
+                    <span>添加附件</span>
+                    <input id="fileupload" type="file" name="mypic">
+                </div>
+            </div>
+        </div>
+    </div>
+	<div  class="block center mt20">
+		<input type="submit" name="" value="保存" class="btns btn-blue mlr10" onclick="surebtn();">
+		<input type="submit" name="" value="取消" class="btns btn-gray mlr10 cancelclose">
+	</div>
+</div>
+<script>
+	function surebtn(){//确定添加合作医院
+		parent.$('#win').window('close');
+	}
+    $(function () {//上传医院logo缩略图
+            var showimg = $('#showimg');
+            var files = $(".files");
+            var btn = $(".btn span");
+            $("#fileupload").wrap("<form id='myupload' action='../action.php' method='post' enctype='multipart/form-data'></form>");
+            $("#fileupload").change(function(){
+                $("#myupload").ajaxSubmit({
+                    dataType:  'json',
+                    beforeSend: function() {
+                        showimg.empty();
+                        btn.html("上传中...");
+                    },
+                    success: function(data) {
+                        files.html("<b>"+data.name+"</b> <span class='delimg' rel='"+data.pic+"'>删除</span>");
+                        var img = "../files/"+data.pic;
+                        showimg.html("<img src='../"+img+"' width=200 height=254>");
+                        btn.html("添加附件");
+                    },
+                    error:function(xhr){
+                        btn.html("上传失败");
+                        files.html(xhr.responseText);
+                    }
+                });
+            });
+            $(".delimg").live('click',function(){
+                var pic = $(this).attr("rel");
+                $.post("action.php?act=delimg",{imagename:pic},function(msg){
+                    if(msg==1){
+                        files.html("删除成功.");
+                        showimg.empty();
+                    }else{
+                        alert(msg);
+                    }
+                });
+            });
+        });
+</script>
+</body>
+</html>

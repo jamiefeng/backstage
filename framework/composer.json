@@ -1,0 +1,20 @@
+{
+    "name": "joysoft/framework",
+    "version": "0.1.0",
+    "type": "library",
+    "description": "PHP framework for joysoft",
+    "keywords": ["framework", "phalcon", "joysoft"],
+    "homepage": "http://git.test.com/root/framework",
+	"license": "BSD-2-Clause",
+    "authors": [
+        {
+            "name": "dancebear",
+            "email": "dancebear@gmail.com",
+            "homepage": "http://www.test.com/",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "classmap": ["Joy.php"]
+    }
+}

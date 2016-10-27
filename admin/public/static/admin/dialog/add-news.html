@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>海外医疗信息管理系统</title>
+	<link rel="stylesheet" type="text/css" href="../css/global.css">
+	<link rel="stylesheet" type="text/css" href="../css/dialog.css">
+	<style type="text/css">
+	body{background: #fff;}
+	</style>
+	<script type="text/javascript" src="../js/jquery-1.8.3.js"></script>
+	<script type="text/javascript" src="../js/base.js"></script>
+	<script type="text/javascript" src="../js/xheditor/xheditor-1.2.2.min.js" ></script>
+	<script type="text/javascript" src="../js/xheditor/xheditor_lang/zh-cn.js"></script>
+	<link href="../js/xheditor/xheditor_skin/default/ui.css" type="text/css" rel="stylesheet">
+	
+</head>
+<body>
+<div class="pad20">
+	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="formtab">
+    	<tr>
+			<td width="100" align="right" valign="top"><em class="col-red">*</em> 文章标题：</td>
+			<td width="" align="left" valign="top"><input type="text" name="" value="" class="inputs forminput w280"></td>
+		</tr>
+        <tr>
+			<td align="right" valign="top">关键词 ：</td>
+		  <td align="left" valign="top"><input type="text" name="" value="" class="inputs forminput w280">（多关键词之间用英文“,”隔开）</td>
+		</tr>
+        <tr>
+			<td align="right" valign="top"><em class="col-red">*</em> 所属栏目：</td>
+			<td align="left" valign="top">
+            	<select class="selectbox">
+					<option value="选择栏目">选择栏目</option>
+					<option value="海外医讯">海外医讯</option>
+					<option value="站内活动">站内活动</option>
+					<option value="美国权威医院">美国权威医院</option>
+					<option value="日本权威医院">日本权威医院</option>
+					<option value="韩国权威医院">韩国权威医院</option>
+				</select>
+            </td>
+		</tr>
+
+        <tr>
+			<td align="right" valign="top"><em class="col-red">*</em> 文章缩略图：</td>
+			<td align="left" valign="top">
+				<!-- <a href="javascript:void(0);" class="smallbtns btn-blue upfilebtn">+上传</a> -->
+				<input type="file" name="" value="" class="">
+			</td>
+		</tr>
+        <tr>
+			<td align="right" valign="top"> 状态：</td>
+			<td align="left" valign="top">	
+				<label><input type="radio" name="status-news" value=""> 立即发布</label>
+				<label><input type="radio" name="status-news" value=""> 暂不发布</label>
+			</td>
+		</tr>
+        <tr>
+        	<td align="right" valign="top" class="nobor"><em class="col-red">*</em> 详细内容：</td>
+			<td align="left" valign="top" class="nobor">
+				<textarea id="elm1" name="elm1"  class="xheditor textareas" rows="" cols="" ></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td class="nobor">&nbsp;</td>
+			<td align="left" class="nobor">
+				<div  class="block mt10">
+					<input type="submit" name="" value="添加" class="btns btn-blue" onclick="surebtn();">
+					<!-- <input type="submit" name="" value="取消" class="btns btn-gray mlr10 cancelclose"> -->
+				</div>
+			</td>
+		</tr>
+	</table>
+</div>
+<script>
+	function surebtn(){//确定添加合作医院
+		parent.$('#win').window('close');
+	}	
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>海外医疗信息管理系统</title>
+	<link rel="stylesheet" type="text/css" href="../css/global.css">
+	<link rel="stylesheet" type="text/css" href="../css/dialog.css">
+	<style type="text/css">
+	body{background: #fff;}
+	</style>
+	<script type="text/javascript" src="../js/jquery-1.8.3.js"></script>
+	<script type="text/javascript" src="../js/base.js"></script>
+	
+</head>
+<body>
+	<div class="addhospitalbox">
+		<p>请先查看系统里是否已有需要添加的合作医院，如果没有，请 人工 <a href="#">添加医院信息</a></p>
+		<dl class="clearfix">
+			<dt>所在地：</dt>
+			<dd>
+				<select class="selectbox">
+					<option selected="" value="请选择">请选择</option>
+					<option value="中国">中国</option>
+					<option value="韩国">韩国</option>
+					<option value="美国">美国</option>
+					<option value="日本">日本</option>
+					<option value="英国">英国</option>
+					<option value="德国">德国</option>
+					<option value="其他国家">其他国家</option>
+				</select>
+			</dd>
+		</dl>
+		<dl class="clearfix">
+			<dt>选择合作医院：</dt>
+			<dd>
+				<select class="selectbox">
+					<option>请选择</option>
+				</select>
+			</dd>
+		</dl>
+		<div class="block mt20 center">
+			<a class="btns btn-blue mlr10" onclick="surebtn();">确定</a>
+			<a class="btns btn-gray mlr10 cancelclose">取消</a>
+		</div>
+	</div>
+<script>
+	function surebtn(){//确定添加合作医院
+		parent.$('#win').window('close');
+	}
+</script>
+</body>
+</html>

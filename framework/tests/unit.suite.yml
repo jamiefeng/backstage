@@ -1,0 +1,13 @@
+# Codeception Test Suite Configuration
+
+# suite for unit (internal) tests.
+class_name: UnitTester
+modules:
+    enabled: [Db,Asserts, UnitHelper]
+    Db:
+        dsn: 'mysql:dbname=mysql;host=127.0.0.1'
+        user: 'root'
+        password: ''
+        dump: 'test/_data/dump.sql'
+        populate: 'true'
+        cleanup: 'true'

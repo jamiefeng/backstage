@@ -1,0 +1,23 @@
+/*添加合作医院*/
+.addhospitalbox{padding:20px; font-size: 15px; color: #444;}
+.addhospitalbox p{ display: block; padding:10px 0; line-height: 24px; text-align: center;}
+.addhospitalbox dl{width: 100%; margin-top: 10px; padding:5px 0; line-height: 24px;}
+.addhospitalbox dl dt{ float: left; width: 200px; text-align: right;}
+.addhospitalbox dl dd{ float: left;}
+
+
+
+.leftupfile{float: left; width: 210px; line-height: 18px; text-align: center; color: #888}
+/*.leftupfile a{display:inline-block;padding:8px 0;}*/
+#showimg{width:200px; height:254px;margin-bottom: 8px; background: #ccc}
+
+.choosesupped,p.choosesupped{padding:0 0 10px 0; text-align:left;}
+.choosesupped i{ margin:0 6px;}
+
+/*状态修改记录*/
+.recordli{}
+.recordli li{ float: left; width: 100%; padding:3px 0; line-height:30px; font-size: 14px;}
+.recordli li span{ float: left; width: 100px; padding:0 0 0 10px;}
+
+/*状态设置 连续文本不换行*/
+/*.slstatius label{ white-space:nowrap}*/

@@ -1,0 +1,13 @@
+/.settings
+/vendor
+/.buildpath
+/.project
+/composer.lock
+/config/web.php
+/deployment.xml
+/deployment.properties
+/runtime
+tests/_output/*
+tests/_output/*
+/tests/unit/config.php
+/nohup.out

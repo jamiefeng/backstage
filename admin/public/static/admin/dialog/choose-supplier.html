@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>海外医疗信息管理系统</title>
+	<link rel="stylesheet" type="text/css" href="../css/global.css">
+	<link rel="stylesheet" type="text/css" href="../css/dialog.css">
+	<style type="text/css">
+	body{background: #fff;}
+	</style>
+	<link rel="stylesheet" type="text/css" href="../easyui/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../easyui/themes/icon.css">
+	<script type="text/javascript" src="../js/jquery-1.8.3.js"></script>
+	<script type="text/javascript" src="../js/base.js"></script>
+	<script type="text/javascript" src="../easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="../easyui/locale/easyui-lang-zh_CN.js"></script>
+	
+</head>
+<body>
+	<div class="addhospitalbox">
+		<p>请先选择供应商，没有找到请 <a href="javascript:void(0);" onclick="addsupplier();">添加供应商</a></p>
+		<p class="choosesupped fts12">
+			已选择供应商： 
+		</p>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0" class="table trhover table-c">
+			<thead>
+				<tr>
+					<th>&nbsp;</th>
+					<th>供应商</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input type="checkbox" name="choose-supp" value="厚朴诺亚健康管理" id="supp1" autocomplete="off"></td>
+					<td>厚朴诺亚健康管理</td>
+					<td><label for="supp1">选择</label></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="choose-supp" value="迈德瑞海外医疗" id="supp2" autocomplete="off"></td>
+					<td>迈德瑞海外医疗</td>
+					<td><label for="supp2">选择</label></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="choose-supp" value="盛诺一家海外医疗" id="supp3" autocomplete="off"></td>
+					<td>盛诺一家海外医疗</td>
+					<td><label for="supp3">选择</label></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="choose-supp" value="盛诺一家海外医疗" id="supp4" autocomplete="off"></td>
+					<td>盛诺一家海外医疗</td>
+					<td><label for="supp4">选择</label></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="choose-supp" value="盛诺一家海外医疗" id="supp5" autocomplete="off"></td>
+					<td>盛诺一家海外医疗</td>
+					<td><label for="supp5">选择</label></td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="block mt8 clearfix">
+			<div class="fr pagergt">
+				<a href="#" class="prev"></a>
+				<span class="fl">1/3</span>
+				<a href="#" class="next"></a>
+			</div>
+		</div>
+		<div class="block mt20 center">
+			<a class="btns btn-blue mlr10" onclick="surebtn();" target="_parent">下一步，添加医院信息</a>
+		</div>
+	</div>
+	<script type="text/javascript">
+		function addsupplier(){//添加供应商
+			parent.$('#choosewin').window('close');
+			var TopTab=window.parent.$('#index_tabs');
+			TopTab.tabs('close','医院介绍');
+			TopTab.tabs('add',{title:'新增供应商',content:'<iframe scrolling="auto" frameborder="0"  src="add-supplier.html" style="width:100%;height:99.2%;"></iframe>',closable:true });
+		    
+		}
+		function surebtn(){//添加医院信息
+			// 把选择的供应商传递给下一步按钮
+		    var checkboxes=$('input[name=choose-supp]:checked');
+
+			var str = [];
+			for(i=0;i<checkboxes.length;i++){
+				if(checkboxes[i].checked){
+					str.push((checkboxes[i].id).replace(/[^0-9]/ig, ""));
+				}
+			}
+			if(checkboxes.length==0){
+				top.$.messager.alert('提示','请选择供应商');
+			}else{
+				//关闭弹窗，跳转到医院介绍页面
+				// var TopTab=window.parent.$('#index_tabs');
+				// alert(111)
+				// BombBoxNoBtn().close();
+				top.$("#win").dialog('close');
+				// dialogBox.dialog('close')
+				// parent.$('#choosewin').window("close");
+				// TopTab.tabs('add',{title:'医院介绍',content:'<iframe scrolling="auto" frameborder="0"  src="hospital-index.html" style="width:100%;height:99.2%;"></iframe>',closable:true });
+			    
+			}
+
+			
+		}
+		$(function(){
+			top.$(".panel-tool-close").on("click",function(){
+				var TopTab=window.parent.$('#index_tabs')
+				TopTab.tabs('close','新增医院');
+			});
+		});
+	</script>
+</body>
+</html>

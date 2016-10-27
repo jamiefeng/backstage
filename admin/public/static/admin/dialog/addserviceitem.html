@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>海外医疗信息管理系统</title>
+	<link rel="stylesheet" type="text/css" href="../css/global.css">
+	<link rel="stylesheet" type="text/css" href="../css/dialog.css">
+	<link rel="stylesheet" type="text/css" href="../easyui/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../easyui/themes/icon.css">
+	<script type="text/javascript" src="../js/jquery-1.8.3.js"></script>
+	<script type="text/javascript" src="../js/base.js"></script>
+	<script type="text/javascript" src="../easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="../easyui/locale/easyui-lang-zh_CN.js"></script>
+	<script type="text/javascript" src="../js/xheditor/xheditor-1.2.2.min.js" ></script>
+	<script type="text/javascript" src="../js/xheditor/xheditor_lang/zh-cn.js"></script>
+	<link href="../js/xheditor/xheditor_skin/default/ui.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="../js/upfile.js"></script>
+	<script type="text/javascript" src="../js/validate.js"></script>
+	
+</head>
+<body>
+<div class="pad20">
+	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="formtab">
+    	<tr>
+			<td width="130" align="right" valign="top"><em class="col-red">*</em> 选择项目分类：</td>
+			<td width="" align="left" valign="top">
+				<select class="selectbox">
+					<option value="请选择">请选择</option>
+					<option value="癌症">癌症</option>
+					<option value="心脑血管疾病">心脑血管疾病</option>
+					<option value="质子与重离子">质子与重离子</option>
+					<option value="儿童疾病 ">儿童疾病 </option>
+					<option value="神经类疾病">神经类疾病</option>
+					<option value="消化疾病">消化疾病</option>
+					<option value="体检">体检</option>
+					<option value="不孕不育">不孕不育</option>
+					<option selected="" value="整形美容">整形美容</option>
+					<option value="肝病">肝病</option>
+					<option value="关节置换">关节置换</option>
+					<option value="其他">其他</option>
+				</select>
+				<select class="selectbox">
+					<option value="请选择">请选择</option>
+					<option value="双鄂手术">双鄂手术</option>
+					<option value="面部轮廓">面部轮廓</option>
+					<option value="立体眼鼻">立体眼鼻</option>
+					<option value="美丽童颜">美丽童颜</option>
+					<option value="自然胸部">自然胸部</option>
+					<option value="纤体管理">纤体管理</option>
+					<option value="男性整形">男性整形</option>
+					<option value="其他">其他</option>
+				</select>
+			</td>
+		</tr>
+        <tr>
+			<td align="right" valign="top"><em class="col-red">*</em> 填写项目名称：</td>
+			<td align="left" valign="top">项目目名称（<30个字） <br><input type="text" name="" value="请输入项目/服务名称" class="inputs forminput w280"></td>
+		</tr>
+        <tr>
+			<td align="right" valign="top"><em class="col-red">*</em> 项目缩略图：</td>
+			<td align="left" valign="top">
+				<!-- <a href="javascript:void(0);" class="smallbtns btn-blue upfilebtn">+上传</a> -->
+				<!-- <input type="file" name="" value="" class=""> -->
+				<div class="fl  block fts12">
+			   		<div class="upfilebtn">
+			            <span>添加附件</span>
+			            <input id="fileupload" type="file" name="mypic">
+			        </div>
+			        <!-- <img src="../images/ts.png" class="fl"> 尺寸为150*40px ,说明：示例中只允许上传gif/jpg格式的图片，建议上传清晰的图片文件 -->
+			        <div class="fl files" style="width:auto"></div>
+			        <div class="fl" style="line-height:30px;"><img src="../images/ts.png" class="fl" style="display:inline;margin:7px 5px 0 5px" > 尺寸为150*40px</div>
+			        <!-- <div id="showimg"></div> -->
+                </div>
+			</td>
+		</tr>
+        <tr>
+			<td align="right" valign="top">
+				<em class="col-red">*</em> 项目介绍：
+			</td>
+		  <td align="left" valign="top">
+            	<textarea id="elm1" name="elm1"  class="xheditor textareas w780" rows="" cols="" ></textarea>
+          </td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center" class="nobor">
+				<div  class="block center">
+					<input type="submit" name="" value="保存" class="btns btn-blue mlr10" onclick="surebtn();">
+					<input type="submit" name="" value="取消" class="btns btn-gray mlr10 cancelclose">
+				</div>
+			</td>
+		</tr>
+	</table>
+</div>
+<script>
+	function surebtn(){//确定添加合作医院
+		parent.$('#win').window('close');
+	}
+
+	$(function () {//上传医院logo缩略图
+			var showimg = $('#showimg');
+			var files = $(".files");
+			var btn = $(".btn span");
+			$("#fileupload").wrap("<form id='myupload' action='../action.php' method='post' enctype='multipart/form-data'></form>");
+		    $("#fileupload").change(function(){
+				$("#myupload").ajaxSubmit({
+					dataType:  'json',
+					beforeSend: function() {
+		        		showimg.empty();
+						btn.html("上传中...");
+		    		},
+					success: function(data) {
+						files.html("<b>"+data.name+"</b> <span class='delimg' rel='"+data.pic+"'>删除</span>");
+						var img = "/files/"+data.pic;
+						showimg.html("<img src='"+img+"' width=150 height=40>");
+						btn.html("添加附件");
+					},
+					error:function(xhr){
+						btn.html("上传失败");
+						files.html(xhr.responseText);
+					}
+				});
+			});
+			$(".delimg").live('click',function(){
+				var pic = $(this).attr("rel");
+				$.post("../action.php?act=delimg",{imagename:pic},function(msg){
+					if(msg==1){
+						files.html("删除成功.");
+						showimg.empty();
+					}else{
+						alert(msg);
+					}
+				});
+			});
+		});
+</script>
+</body>
+</html>

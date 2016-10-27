@@ -1,0 +1,6 @@
+/config/web.php
+/.settings
+/.project
+/.buildpath
+/public/rewrite.conf
+/runtime
